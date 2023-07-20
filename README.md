@@ -1,6 +1,6 @@
 # goit_homework_6
 
-This program is for scanning and sorting given folder
+These scripts are for scanning and sorting given folder
 
 ### for scanning folder use:
 
