@@ -1,4 +1,7 @@
 # goit_homework_6
+
+This program is for scanning and sorting given folder
+
 ### for scanning folder use:
 
 `python3 file_parser.py folder_to_scan`
