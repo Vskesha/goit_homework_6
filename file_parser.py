@@ -71,7 +71,7 @@ if __name__ == '__main__':
     while True:
         if folder_to_scan and Path(folder_to_scan).exists() and Path(folder_to_scan).is_dir():
             break
-        folder_to_scan = input(f'{folder_to_scan} is not valid. Enter path to parse: ')
+        folder_to_scan = input(f'"{folder_to_scan}" is not valid. Enter path to parse: ')
 
     print(f'Start in folder {folder_to_scan}')
     traverse(Path(folder_to_scan))
