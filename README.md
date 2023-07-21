@@ -4,7 +4,9 @@ These scripts are for scanning and sorting given folder
 
 ### for scanning folder use:
 
-`python3 file_parser.py folder_to_scan`
+`python3 file_parser.py folder_to_scan` in terminal
+
+if `folder_to_scan` is not given, current folder will be scanned
 
 function `traverse` in `file_parser.py` recursively scans given 'folder' and:
 * adds all directories' paths to `FOLDERS`
@@ -13,6 +15,8 @@ function `traverse` in `file_parser.py` recursively scans given 'folder' and:
 
 ### for sorting folder use:
 
-`python3 sort_folder.py folder_to_sort`
+`python3 sort_folder.py folder_to_sort` in terminal
+
+if `folder_to_sort` is not given, current folder will be sorted
 
 function `sort_folder` in `sort_folder.py` sorts files in the given `folder_to_sort` according to the `REGISTERED_EXTENSIONS` in `file_parser.py`
