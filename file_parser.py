@@ -62,7 +62,7 @@ def traverse(folder: Path) -> None:
                 MY_OTHER.append(element)
 
 
-if __name__ == '__main__':
+def main():
     folder_to_scan = ''
 
     if len(sys.argv) > 1:
@@ -84,3 +84,7 @@ if __name__ == '__main__':
     print(f'{KNOWN_EXTENSIONS=}')
     print(f'{UNKNOWN_EXTENSIONS=}')
     print(f'{FOLDERS=}')
+
+
+if __name__ == '__main__':
+    main()
