@@ -63,15 +63,16 @@ def traverse(folder: Path) -> None:
 
 
 def main():
-    folder_to_scan = ''
-
-    if len(sys.argv) > 1:
-        folder_to_scan = sys.argv[1]
+    folder_to_scan = sys.argv[1] if len(sys.argv) > 1 else ''
 
     while True:
-        if folder_to_scan and Path(folder_to_scan).exists() and Path(folder_to_scan).is_dir():
+        path = Path(folder_to_scan).resolve()
+        if not path.exists() or not path.is_dir():
+            folder_to_scan = input(f'There is no such folder "{folder_to_scan}"\n'
+                                   f'Please enter the path to the folder\n'
+                                   f'(enter nothing to scan current folder): ')
+        else:
             break
-        folder_to_scan = input(f'"{folder_to_scan}" is not valid. Enter path to parse: ')
 
     print(f'Start in folder {folder_to_scan}')
     traverse(Path(folder_to_scan))
