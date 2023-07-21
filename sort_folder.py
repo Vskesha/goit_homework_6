@@ -83,15 +83,16 @@ def main():
         else:
             break
 
-    confirmation = input(f'Do You really want to sort this folder:\n"{path}" (y / n)? ')
+    confirmation = input(f'Do You really want to sort this folder:\n"{path}"?\n'
+                         f'!!! CHANGES ARE IRREVERSIBLE !!! (y / n) ')
     while confirmation.lower() not in ('y', 'n'):
         confirmation = input(f"Your response ('{confirmation}') was not one of the expected responses: y, n,\n"
-                             f"Proceed (y / n)? ")
+                             f"!!! CHANGES ARE IRREVERSIBLE !!! Proceed? (y / n) ")
     if confirmation.lower() == 'n':
         return
 
     print(f'Start in folder "{path}"')
-    # sort_folder(path)
+    sort_folder(path)
     print('Done')
 
 
