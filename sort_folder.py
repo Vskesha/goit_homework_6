@@ -2,7 +2,7 @@ from pathlib import Path
 import shutil
 import sys
 import file_parser as parser
-from norm import normalize
+from normalization import normalize
 
 
 def handle_file(file: Path, target_folder: Path) -> None:
@@ -71,26 +71,27 @@ def sort_folder(folder: Path) -> None:
 
 
 def main():
-    folder_to_sort = ''
 
-    if len(sys.argv) > 1:
-        folder_to_sort = sys.argv[1]
+    folder_to_sort = sys.argv[1] if len(sys.argv) > 1 else ''
 
     while True:
-        if not folder_to_sort:
-            folder_to_sort = input('There is no folder to sort.\n'
-                                   'Please enter the path to the folder\n'
-                                   '(\'.\' means current folder): ')
-        elif not Path(folder_to_sort).exists() or not Path(folder_to_sort).is_dir():
-            folder_to_sort = input(f'"{folder_to_sort}" does not exist\n'
+        path = Path(folder_to_sort).resolve()
+        if not path.exists() or not path.is_dir():
+            folder_to_sort = input(f'There is no such folder "{folder_to_sort}"\n'
                                    f'Please enter the path to the folder\n'
-                                   f'(\'.\' means current folder): ')
+                                   f'(enter nothing to sort current folder): ')
         else:
             break
 
-    path = Path(folder_to_sort).resolve()
-    print(f'Start in folder "{folder_to_sort}"')
-    sort_folder(path)
+    confirmation = input(f'Do You really want to sort this folder:\n"{path}" (y / n)? ')
+    while confirmation.lower() not in ('y', 'n'):
+        confirmation = input(f"Your response ('{confirmation}') was not one of the expected responses: y, n,\n"
+                             f"Proceed (y / n)? ")
+    if confirmation.lower() == 'n':
+        return
+
+    print(f'Start in folder "{path}"')
+    # sort_folder(path)
     print('Done')
 
 
